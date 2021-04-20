@@ -3,24 +3,38 @@
 }
 
 .title{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .mainText{
-  color:white;
+  color:rgb(0, 0, 0);
 }
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #B783C3;
+  background-color: #ffffff;
 
 }
 
 .page-footer{
-  background-color: #9E65A9;
+  background-color: #3d3d3d;
 }
 main {
   flex: 1 0 auto;
 }
     
+
+input[type=range] {
+  height: 30px;
+  -webkit-appearance: none;
+ 
+  width: 40%;
+  color:#000000;
+  background: #ffffff; 
+}
+label{
+  color:#000000;
+  background: #ffffff; 
+
+}

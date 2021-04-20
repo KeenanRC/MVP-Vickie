@@ -1,0 +1,44 @@
+.helloInput {
+  width: 200px;
+}
+
+.title{
+  color: rgb(0, 0, 0);
+}
+.mainText{
+  color:rgb(0, 0, 0);
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #ffffff;
+
+}
+
+.page-footer{
+  background-color: #3d3d3d;
+}
+main {
+  flex: 1 0 auto;
+}
+    
+.slider {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 20%; 
+  height: 25px; 
+  background: #000000; 
+  outline: none; 
+
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}

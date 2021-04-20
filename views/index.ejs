@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVP Test</title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     <link href="/styles.css" rel="stylesheet">
+  
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #969696;">
+            
+               <p>MVP Test: Vickie</p>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+            <h1 class="title">Ambulance Test</h1>
+            
+      
+            <div class="row center " style="padding-top:50px;">
+                <p>How can Vickie help? Lets use an example scenario. An ambulance is heading down towards an accident and is passing through an ntersection.</p>
+                <p>Despite ambulances having right of way at a redlight, we  want the lights green to make it cross easier and with less risk of an accident.</p>
+                <p>Vickie seeing the ambulance coming from one sensor and knows the distance from it to the intersection. It can then calculate how long to let the intersection  continue as green before it decides to stop. </p>
+                <div class="row" >           
+                <form action="/traffic/" method="POST">
+                   
+                 <!--  <label for="TL1">Please enter speed of ambulance (km/h) </label>
+                    <input id="TL1" type="name" name="TL1" value="">--> 
+
+                    <label for="TL1">Please enter speed of ambulance (km/h) </label>
+                    
+                    <div class="row" >
+                    <input type="range" min="1" max="100" value="1"  name="TL1"  id="TL1" class="slider">
+                    <p><span id="TL1Value"></span> km/h</p>
+                    </div>
+
+                    
+                    <label for="TL2">Please enter size of road (km) </label>
+                   
+                    <div class="row" >
+                    <input type="range" min="1" max="10" value="1"  id="TL2" name="TL2" class="slider">
+                    <p><span id="TL2Value"></span>KM</p>
+                    </div>
+
+                    <div class="row" >
+                    <input type="submit" value="Calculate Time">
+                    </div>
+                </form>
+              </div>   
+              <div class="row" >
+                <% if (locals.Time2Stop) { %>
+
+                   
+                    
+                    <p>Time until traffic lights stopped:</p>                  
+                    <p> <%= Time2Stop %>  </p>
+             
+                <% } %>
+               </div>
+            </div>
+    
+            <script>
+                var slider1 = document.getElementById("TL1");
+                var output1 = document.getElementById("TL1Value");
+                output1.innerHTML = slider1.value;
+                
+                slider1.oninput = function() {
+                  output1.innerHTML = this.value;
+                }
+
+                var slider2 = document.getElementById("TL2");
+                var output2 = document.getElementById("TL2Value");
+                output2.innerHTML = slider2.value;
+                
+                slider2.oninput = function() {
+                  output2.innerHTML = this.value;
+                }
+
+                </script>
+          
+        </div>
+    
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+     
+        </div>
+      </footer>
+
+
+
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="env.js"></script>
+
+</body>
+
+</html>
