@@ -85,20 +85,10 @@ app.use(express.json());
 
 
 import {CalcDistanceToStop} from "./public/assets/traffic.js";
-/*
-app.get("/login", (req, res) => res.sendFile() {
-  res.render('index');
-});
 
-app.get("/", function (req, res) {
-  connectEnsureLogin.ensureLoggedIn(),
-  res.render('index');
-});
-*/
 app.get("/login", function (req, res) {
   res.render('login');
 });
-
 
 
 app.get('/',
@@ -145,15 +135,6 @@ testObject.save(function (err) {
  console.log("TO Result: "+ testObject);
  console.log("TO Result: "+ testObject.Speed);
 
- //TrafficModel.findOne({Speed: req.body.TL1}, function(err,obj) { console.log("FindONE " +obj); });
-
- var query2 =  TrafficModel.findOne({Speed:req.body.TL1});
-
-
- console.log("Query2 Result: "+ query2);
- console.log("Query2 Speed Result: "+ query2.Speed);
- console.log("Query2 Time Result: "+ query2.TimeTaken);
- 
  res.render('index', {Time2Stop});
 
 });
