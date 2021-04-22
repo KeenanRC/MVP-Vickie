@@ -34,7 +34,17 @@
         <div class="container">
             <h1 class="title">Ambulance Test</h1>
             
-      
+            <script>
+              const req = new XMLHttpRequest();
+              req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                  const user = JSON.parse(req.response).user;
+                  document.getElementById("welcome-message").innerText = `Welcome ${user.username}!!`;
+                }
+              };
+              req.open("GET", "http://localhost:8080/index", true);
+              req.send();
+            </script>
             <div class="row center " style="padding-top:50px;">
                 <p>How can Vickie help? Lets use an example scenario. An ambulance is heading down towards an accident and is passing through an ntersection.</p>
                 <p>Despite ambulances having right of way at a redlight, we  want the lights green to make it cross easier and with less risk of an accident.</p>
@@ -57,7 +67,7 @@
                    
                     <div class="row" >
                     <input type="range" min="1" max="10" value="1"  id="TL2" name="TL2" class="slider">
-                    <p><span id="TL2Value"></span>KM</p>
+                    <p><span id="TL2Value"></span> KM</p>
                     </div>
 
                     <div class="row" >

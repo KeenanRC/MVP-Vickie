@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVP Login</title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     <link href="/styles.css" rel="stylesheet">
+  
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #969696;">
+            
+               <p>MVP Test: Vickie</p>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+            <h1 class="title">Login</h1>
+            
+            <form action="/login" method="post">
+              <div class="title">
+              
+              </div>
+              <div class="field">
+                <label>Username:</label>
+                <input type="text" name="username" />
+                <br />
+              </div>
+              <div class="field">
+                <label>Password:</label>
+                <input type="password" name="password" required />
+              </div>
+              <div class="field">
+                <input class="submit-btn" type="submit" value="Submit" required />
+              </div>
+              <label id="error-message"></label>
+            </form>
+          
+            <script>
+              const urlParams = new URLSearchParams(window.location.search);
+              const info = urlParams.get('info');
+          
+              if(info) {
+                const errorMessage = document.getElementById("error-message");
+                errorMessage.innerText = info;
+                errorMessage.style.display = "block";
+              }
+            </script>
+
+
+        </div>
+    
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+     
+        </div>
+      </footer>
+
+
+
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="env.js"></script>
+
+</body>
+
+</html>
