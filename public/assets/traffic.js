@@ -23,9 +23,6 @@ class Intersection
 
   }
 
-
-
-
   class TrafficController {
   constructor() 
   {
@@ -45,8 +42,7 @@ class Intersection
 
 
 function TrafficCompute() {
-    
-
+  
   let TC = new TrafficController();
   console.log("Export Compute"); 
   var TimeToCross = 0;
@@ -62,7 +58,7 @@ var speedMeters = Speed / 3.6;
 
 Distance = Distance * 1000; // Converting Km to M
 var time = Distance / speedMeters;
-//TrafficDelay time
+//TrafficDelay time may delete later
 var TrafficDelay = 7;
 var TimeToStopLights = time - TrafficDelay;
 console.log(TimeToStopLights); 

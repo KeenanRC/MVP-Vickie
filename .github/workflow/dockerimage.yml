@@ -13,7 +13,7 @@ jobs:
         -u ${{secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build the Docker Image
       run: docker build -t ${{secrets.DOCKER_USERNAME}}/
-      node-project .
+      mvp .
     - name: Publish to Dockerhub
       run: docker push ${{ secrets.DOCKER_USERNAME}}/
-      node-project
+      mvp
