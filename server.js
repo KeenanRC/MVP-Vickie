@@ -8,7 +8,12 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 var Schema = mongoose.Schema;
-
+const expressSession = require('express-session')({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+});
+app.use(expressSession);
 var mongoDB = 'mongodb://127.0.0.1/my_database';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -94,7 +99,8 @@ app.get('/',
   connectEnsureLogin.ensureLoggedIn(),
   (req, res) => res.render('index')
 );
-app.get("/database", function (req, res) {
+app.get("/database",connectEnsureLogin.ensureLoggedIn(),  (req, res) => {
+  
 mongoose.model('TrafficModel').find(function(err, TrafficModel){
 res.send(TrafficModel);
   
@@ -103,7 +109,8 @@ res.send(TrafficModel);
 
 });
 
-  app.get("/cdb", function (req, res) {
+  app.get("/cdb",connectEnsureLogin.ensureLoggedIn() ,function (req, res) {
+    
     TrafficModel.remove({}, function(err, result) {
       if (err) {
         console.err(err);
@@ -113,9 +120,9 @@ res.send(TrafficModel);
       });
     });
   
-app.post('/traffic', function(req, res){
+app.post('/traffic',connectEnsureLogin.ensureLoggedIn(), function(req, res){
   console.log(req.body);
-
+  
   
 
   
